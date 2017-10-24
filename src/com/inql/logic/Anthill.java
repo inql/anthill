@@ -4,11 +4,15 @@ public class Anthill {
 
     private int width;
     private int height;
-    private int maxAnts;
+    private static int maxAnts;
     private Ants ants;
 
     public Ants getAnts() {
         return ants;
+    }
+
+    public static int getMaxAnts() {
+        return maxAnts;
     }
 
     public Anthill(int width, int height, int maxAnts) {

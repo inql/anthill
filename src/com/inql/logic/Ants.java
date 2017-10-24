@@ -21,19 +21,22 @@ public class Ants {
     }
 
     public boolean addAnt(){
+        if(ants.size()<Anthill.getMaxAnts())
+        {
+            int x,y;
 
-        int x,y;
-
-        do{
-            x = ThreadLocalRandom.current().nextInt(0,wLimit+1);
-            y = ThreadLocalRandom.current().nextInt(0,hLimit+1);
-        }while(isAntThere(x,y) && !!isPlaceCorrect(x,y));
-        ants.add(new Ant(x,y));
-        return true;
+            do{
+                x = ThreadLocalRandom.current().nextInt(0,wLimit+1);
+                y = ThreadLocalRandom.current().nextInt(0,hLimit+1);
+            }while(isAntThere(x,y) && !!isPlaceCorrect(x,y));
+            ants.add(new Ant(x,y));
+            return true;
+        }
+        return false;
     }
 
     public boolean addAnt(int x, int y){
-        if(!isAntThere(x,y) && isPlaceCorrect(x,y)){
+        if(!isAntThere(x,y) && isPlaceCorrect(x,y) && ants.size()<Anthill.getMaxAnts()){
             ants.add(new Ant(x,y));
             return true;
         }
